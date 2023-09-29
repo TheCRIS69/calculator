@@ -1,0 +1,40 @@
+:root {
+  ---bg-very-dark-violet: hsl(268, 75%, 9%); 
+  --key-dark-violet:  hsl(281, 89%, 26%);
+  --key-vivid-magenta: hsl(285, 91%, 52%);
+  --key-pure-cyan: hsl(176, 100%, 44%);
+  --key-soft-cyan: hsl(285, 91%, 52%);
+  --key-very-dark-violet: hsl(268, 47%, 21%);
+  --key-dark-magenta: hsl(290, 70%, 36%);
+  --text-light-yellow: hsl(52, 100%, 62%);
+  --text-very-dark-blue: hsl(198, 20%, 13%);
+  --text-white: hsl(0, 0%, 100%);
+
+  --fz-regular: 2rem;
+  --ff-main: 'League Spartan', sans-serif;
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
