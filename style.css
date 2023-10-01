@@ -1,5 +1,6 @@
 :root {
-  ---bg-very-dark-violet: hsl(268, 75%, 9%); 
+  ---bg-body-dark-violet: hsl(268, 75%, 9%); 
+  --bg-container-lighter-violet: hsl(268, 74%, 15%);
   --key-dark-violet:  hsl(281, 89%, 26%);
   --key-vivid-magenta: hsl(285, 91%, 52%);
   --key-pure-cyan: hsl(176, 100%, 44%);
@@ -12,6 +13,9 @@
 
   --fz-regular: 2rem;
   --ff-main: 'League Spartan', sans-serif;
+
+  --border-radius-normal: .5rem;
+  --border-radius-large: 1rem;
 }
 
 /*
@@ -20,9 +24,8 @@
 */
 *, *::before, *::after {
     box-sizing: border-box;
-  }
-  * {
     margin: 0;
+    padding: 0;
   }
 
   body {
@@ -38,3 +41,64 @@
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
   }
+
+body {
+  background-color: var(---bg-body-dark-violet);
+  font-family: var(--ff-main);
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  min-height: 420px;
+  min-width: 400px;
+  background-color: var(--bg-container-lighter-violet);
+  border-radius: var(--border-radius-large);
+}
+
+.title {
+  color: var(--text-light-yellow);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.calculator-result-box {
+  border-radius: var(--border-radius-normal);
+  background-color: var(--key-very-dark-violet);
+  min-height: 80px;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.calculator-options {
+  min-height: 250px;
+  background-color: var(--key-very-dark-violet);
+  margin: 1rem;
+  padding: .5rem;
+  border-radius: var(--border-radius-normal);
+}
+
+.calculator-options__group {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.calculator-options__group > button {
+  padding: .5rem 0;
+  border: none;
+  border-radius: var(--border-radius-normal);
+  cursor: pointer;
+}
+
