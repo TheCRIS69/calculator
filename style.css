@@ -1,11 +1,11 @@
 :root {
   ---bg-body-dark-violet: hsl(268, 75%, 9%); 
   --bg-container-lighter-violet: hsl(268, 74%, 15%);
-  --key-dark-violet:  hsl(281, 89%, 26%);
+  --bg-very-dark-violet: hsl(268, 47%, 21%);
+  --key-dark-violet: hsl(281, 100%, 26%);
   --key-vivid-magenta: hsl(285, 91%, 52%);
   --key-pure-cyan: hsl(176, 100%, 44%);
-  --key-soft-cyan: hsl(285, 91%, 52%);
-  --key-very-dark-violet: hsl(268, 47%, 21%);
+  --key-soft-cyan: hsl(176, 100%, 60%);
   --key-dark-magenta: hsl(290, 70%, 36%);
   --text-light-yellow: hsl(52, 100%, 62%);
   --text-very-dark-blue: hsl(198, 20%, 13%);
@@ -69,7 +69,7 @@ body {
 
 .calculator-result-box {
   border-radius: var(--border-radius-normal);
-  background-color: var(--key-very-dark-violet);
+  background-color: var(--bg-very-dark-violet);
   min-height: 80px;
   margin: 0 1rem;
   display: flex;
@@ -77,28 +77,53 @@ body {
   justify-content: flex-end;
 }
 
-.calculator-options {
+.calculator-keys {
   min-height: 250px;
-  background-color: var(--key-very-dark-violet);
+  background-color: var(--bg-very-dark-violet);
   margin: 1rem;
   padding: .5rem;
   border-radius: var(--border-radius-normal);
 }
 
-.calculator-options__group {
+.calculator-keys__group {
   margin: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1rem;
 }
+/* LAST GROUP OF BUTTONS */
 .two {
   grid-template-columns: 1fr 1fr;
 }
 
-.calculator-options__group > button {
-  padding: .5rem 0;
+/* BUTTONS */
+.key {
+  background-color: var(--key-dark-violet);
+  padding: .8rem 0;
   border: none;
   border-radius: var(--border-radius-normal);
+  box-shadow: 0 .2rem var(--key-vivid-magenta);
   cursor: pointer;
 }
+.key:hover {
+  background-color: var(--key-vivid-magenta);
+  box-shadow: 0 .2rem var(--key-dark-violet);
+}
+
+.delete, .reset {
+  background-color: var(--key-dark-magenta);
+}
+:is(.delete, .reset):hover {
+  box-shadow: 0 .2rem var(--key-dark-magenta) ;
+}
+
+.result {
+  background-color: var(--key-pure-cyan);
+  box-shadow: 0 .2rem var(--key-soft-cyan);
+}
+.result:hover {
+  background-color: var(--key-soft-cyan);
+  box-shadow: 0 .2rem var(--key-pure-cyan);
+}
+
 
