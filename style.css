@@ -9,7 +9,8 @@
   --key-dark-magenta: hsl(290, 70%, 36%);
   --text-light-yellow: hsl(52, 100%, 62%);
   --text-very-dark-blue: hsl(198, 20%, 13%);
-  --text-white: hsl(0, 0%, 100%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-black: hsl(0, 0%, 0%);
 
   --fz-regular: 2rem;
   --ff-main: 'League Spartan', sans-serif;
@@ -55,26 +56,32 @@ body {
 }
 
 .container {
-  min-height: 420px;
+  min-height: 440px;
   min-width: 400px;
   background-color: var(--bg-container-lighter-violet);
   border-radius: var(--border-radius-large);
 }
 
-.title {
-  color: var(--text-light-yellow);
-  font-size: 1.5rem;
-  padding: 1rem;
+@media (max-width: 400px) {
+  .container {
+    min-width: 300px;
+    margin: 0 1rem;
+  }
 }
 
 .calculator-result-box {
   border-radius: var(--border-radius-normal);
   background-color: var(--bg-very-dark-violet);
   min-height: 80px;
-  margin: 0 1rem;
+  margin: 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+.display-result {
+  color: var(--text-light-yellow);
+  padding: 1rem;
+  font-size: 2.5rem;
 }
 
 .calculator-keys {
@@ -99,6 +106,7 @@ body {
 /* BUTTONS */
 .key {
   background-color: var(--key-dark-violet);
+  color: var(--text-light-yellow);
   padding: .8rem 0;
   border: none;
   border-radius: var(--border-radius-normal);
@@ -112,16 +120,18 @@ body {
 
 .delete, .reset {
   background-color: var(--key-dark-magenta);
+  color: var(--clr-white);
 }
 :is(.delete, .reset):hover {
   box-shadow: 0 .2rem var(--key-dark-magenta) ;
 }
 
-.result {
+.equal {
   background-color: var(--key-pure-cyan);
+  color: var(--clr-black);
   box-shadow: 0 .2rem var(--key-soft-cyan);
 }
-.result:hover {
+.equal:hover {
   background-color: var(--key-soft-cyan);
   box-shadow: 0 .2rem var(--key-pure-cyan);
 }
