@@ -12,6 +12,59 @@ function operate(firstNum, operation, secondNum) {
     }
 }
 
+const calculatorDisplay = document.querySelector('.display-result'); 
+const keys = document.querySelector('.calculator-keys');
+
+const deleteBtn = document.querySelector('.delete');
+const resetBtn = document.querySelector('.reset');
+const equalBtn = document.querySelector('.equal');
+
+let firstNumber = '';
+let operation = '';
+let secondNumber = '';
+let addToFirstNumber = true;
+
+keys.addEventListener('click', display);
+
+function display(e) {
+    if (e.target.tagName === 'BUTTON') {
+        if (e.target.hasAttribute('data-number')) {
+            if (addToFirstNumber) {
+                firstNumber += e.target.getAttribute('data-number');
+            }
+            else {
+                secondNumber += e.target.getAttribute('data-number');
+            }
+        }
+        if (e.target.hasAttribute('data-operation')) {
+            operation = e.target.getAttribute('data-operation');
+            addToFirstNumber = false;
+        }
+    }
+    calculatorDisplay.textContent = firstNumber + operation + secondNumber;
+
+    if (e.target.classList.contains('equal')) {
+        console.log(operate(+firstNumber, operation, +secondNumber));
+        calculatorDisplay.textContent = operate(+firstNumber, operation, +secondNumber);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

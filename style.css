@@ -118,7 +118,8 @@ body {
   box-shadow: 0 .2rem var(--key-dark-violet);
 }
 
-.delete, .reset {
+.delete, 
+.reset {
   background-color: var(--key-dark-magenta);
   color: var(--clr-white);
 }
@@ -126,14 +127,16 @@ body {
   box-shadow: 0 .2rem var(--key-dark-magenta) ;
 }
 
-.equal {
+.equal, 
+[data-operation] {
   background-color: var(--key-pure-cyan);
   color: var(--clr-black);
   box-shadow: 0 .2rem var(--key-soft-cyan);
 }
-.equal:hover {
+:is(.equal, [data-operation]):hover {
   background-color: var(--key-soft-cyan);
   box-shadow: 0 .2rem var(--key-pure-cyan);
 }
+
 
 
