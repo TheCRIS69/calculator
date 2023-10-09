@@ -36,7 +36,7 @@ function display(e) {
                 secondNumber += e.target.getAttribute('data-number');
             }
         }
-        if (e.target.hasAttribute('data-operation')) {
+        if (e.target.hasAttribute('data-operation') && firstNumber !== '') {
             operation = e.target.getAttribute('data-operation');
             addToFirstNumber = false;
         }
@@ -44,8 +44,19 @@ function display(e) {
     calculatorDisplay.textContent = firstNumber + operation + secondNumber;
 
     if (e.target.classList.contains('equal')) {
-        console.log(operate(+firstNumber, operation, +secondNumber));
+        operate(+firstNumber, operation, +secondNumber);
         calculatorDisplay.textContent = operate(+firstNumber, operation, +secondNumber);
+        firstNumber = operate(+firstNumber, operation, +secondNumber);
+        operation = '';
+        secondNumber = '';
+    }
+
+    if (e.target.classList.contains('reset')) {
+        firstNumber = '';
+        operation = '';
+        secondNumber = '';
+        addToFirstNumber = true;
+        calculatorDisplay.textContent = 0;
     }
 }
 
