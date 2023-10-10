@@ -31,9 +31,11 @@ function display(e) {
         if (e.target.hasAttribute('data-number')) {
             if (addToFirstNumber) {
                 firstNumber += e.target.getAttribute('data-number');
+                console.log(firstNumber);
             }
             else {
                 secondNumber += e.target.getAttribute('data-number');
+                console.log(secondNumber);
             }
         }
         if (e.target.hasAttribute('data-operation') && firstNumber !== '') {
@@ -42,40 +44,40 @@ function display(e) {
         }
     }
     calculatorDisplay.textContent = firstNumber + operation + secondNumber;
+}
 
-    if (e.target.classList.contains('equal')) {
+equalBtn.addEventListener('click', operationResult);
+resetBtn.addEventListener('click', reset);
+deleteBtn.addEventListener('click', deleteLastNum)
+
+function operationResult(e) {
+    if (e.target.classList.contains('equal') && secondNumber !== '') {
         operate(+firstNumber, operation, +secondNumber);
         calculatorDisplay.textContent = operate(+firstNumber, operation, +secondNumber);
         firstNumber = operate(+firstNumber, operation, +secondNumber);
         operation = '';
         secondNumber = '';
+        addToFirstNumber = true;
     }
+}
 
+function reset(e) {
     if (e.target.classList.contains('reset')) {
         firstNumber = '';
         operation = '';
         secondNumber = '';
         addToFirstNumber = true;
-        calculatorDisplay.textContent = 0;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function deleteLastNum(e) {
+    if (e.target.classList.contains('delete')) {
+        if (addToFirstNumber) {
+            firstNumber = firstNumber.toString().slice(0, -1);
+        }
+        else {
+            secondNumber = secondNumber.toString().slice(0, -1);
+        }
+    }
+    calculatorDisplay.textContent = firstNumber + operation + secondNumber;
+}

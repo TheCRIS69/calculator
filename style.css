@@ -64,8 +64,8 @@ body {
 
 @media (max-width: 400px) {
   .container {
-    min-width: 300px;
-    margin: 0 1rem;
+    min-width: 325px;
+    margin: 0 .5rem;
   }
 }
 
